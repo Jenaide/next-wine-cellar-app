@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// database schema
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  password  String?
+  wine Wines[]
+}
+
+model Wines {
+  id        Int     @id @default(autoincrement())
+  name     String
+  year   DateTime
+  type wineTypes
+  varietal Varietals
+  rate Float?
+  consumed Boolean @default(false)
+  dateConsumed DateTime? @map("date_consumed")
+  user User? @relation(fields: [userId], references: [id])
+  userId  Int?
+}
+
+enum wineTypes {
+  Red
+  White
+  Rose
+  WhiteBlend
+  RedBlend
+}
+
+enum Varietals {
+  CabernetSauvignon
+  Merlot
+  Shiraz
+  CheninBlanc
+  Verdelho
+  Chardonnay
+  Durif
+  Riesling
+  Semillon
+  Viognier
+  Cinsault
+  PinotNoir
+}
