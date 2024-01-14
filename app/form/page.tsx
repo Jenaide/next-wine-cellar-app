@@ -4,14 +4,14 @@ const inputStyle = "w-full p-2 border border-gray-300 rounded-md placeholder:fon
 
 const Form = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-15">
-        <div className='relative flex flex-col m-6 space-y-8 border shadow-2xl rounded-2xl'>
-          <div className='flex flex-col justify-center p-8'>
+    <main className="flex flex-col items-center justify-between">
+        <div className='flex flex-col w-full max-w-lg p-6 space-y-8 border shadow-2xl rounded-2xl'>
+          <div className='flex flex-col justify-center'>
             <span className='mb-3 text-4xl text-center text-white font-bold'>Add/Edit Wine</span>
             <span className='font-light text-center text-gray-400 mb-8'>
               Add or customize your wine list here
             </span>
-              <form>
+              <form className='w-full'>
                 <div className='mb-3'>
                   <label htmlFor='name' className='block text-gray-200 text-sm font-bold mb-2'>Name:</label>
                   <input 
@@ -69,7 +69,7 @@ const Form = () => {
                   />
                 </div>
                 <div className='mt-4'>
-                  <button type='submit' className='bg-gray-400 text-white px-4 py-2 rounded-md last:hover:bg-slate-600'>Submit</button>
+                  <button type='submit' className='w-full bg-gray-400 text-white px-4 py-2 rounded-md last:hover:bg-slate-600'>Submit</button>
                 </div>
             </form>
           </div>
